@@ -47,6 +47,7 @@ set(RUN_DIR ${PROJECT_SOURCE_DIR}/bin)
 
 set(EXAMPLES
 	hello_opengl
+  spinnycube
 )
 
 find_package(OpenMP)
