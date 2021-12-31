@@ -48,6 +48,8 @@ set(RUN_DIR ${PROJECT_SOURCE_DIR}/bin)
 set(EXAMPLES
 	hello_opengl
   spinnycube
+  simple_texture
+  simple_texcoords
 )
 
 find_package(OpenMP)

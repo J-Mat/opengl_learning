@@ -28,9 +28,14 @@ static const char* vs_source[] =
 	"                                                                               \n"
 	"void main(void)                                                                \n"
 	"{                                                                              \n"
-	"    const vec4 vertices[] = vec4[](vec4( 0.75, -0.75, 0.5, 1.0),               \n"
-	"                                   vec4(-0.75, -0.75, 0.5, 1.0),               \n"
-	"                                   vec4( 0.75,  0.75, 0.5, 1.0));              \n"
+	"    const vec4 vertices[] = vec4[](vec4( 1.0, -1.0, 0.5, 1.0),                 \n"
+	"                                   vec4(-1.0, -1.0, 0.5, 1.0),                 \n"
+	"                                   vec4( 1.0,  1.0, 0.5, 1.0),                 \n"
+
+	"                                   vec4( -1.0,  -1.0, 0.5, 1.0),               \n"
+	"                                   vec4( 1.0,  1.0, 0.5, 1.0),                 \n"
+	"                                   vec4( -1.0,  1.0, 0.5, 1.0)                \n"
+	"								                                );              \n"
 	"                                                                               \n"
 	"    gl_Position = vertices[gl_VertexID];                                       \n"
 	"}                                                                              \n"
@@ -84,17 +89,19 @@ public:
 		
 		glBindTexture(GL_TEXTURE_2D, texture);
 		
-		glTexStorage2D(GL_TEXTURE_2D, 8, GL_RGBA32F, 256, 256);
+		int size = 128;
 
-		float* data = new float[256 * 256 * 4];
+		glTexStorage2D(GL_TEXTURE_2D, 8, GL_RGBA32F, size, size);
+			
+		float* data = new float[size * size * 4];
 		
-		generate_texture(data, 256, 256);
+		generate_texture(data, size, size);
 
 		glTexSubImage2D(
 			GL_TEXTURE_2D,
 			0,
 			0, 0,
-			256, 256,
+			size, size,
 			GL_RGBA,
 			GL_FLOAT,
 			data
@@ -137,7 +144,13 @@ public:
 		glClearBufferfv(GL_COLOR, 0, green);
 	
 		glUseProgram(program);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glDrawArrays(GL_TRIANGLES, 0, 6);
+	}
+	
+	void onResize(int w, int h)
+	{
+		sb7::application::onResize(w, h);
+		glViewport(0, 0, w, h);
 	}
 
 
