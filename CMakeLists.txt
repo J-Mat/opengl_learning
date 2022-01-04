@@ -1,21 +1,20 @@
 cmake_minimum_required (VERSION 2.6)
 
-project(opengl_learning)
+project (opengl_learning)
 
-LINK_DIRECTORIES(${CMAKE_SOURCE_DIR}/lib)
+LINK_DIRECTORIES( ${CMAKE_SOURCE_DIR}/lib )
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
-
+# Second, for multi-config builds (e.g. msvc)
 foreach( OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES} )
     string( TOUPPER ${OUTPUTCONFIG} OUTPUTCONFIG )
     set( CMAKE_RUNTIME_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${CMAKE_SOURCE_DIR}/bin )
     set( CMAKE_LIBRARY_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${CMAKE_SOURCE_DIR}/lib )
     set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${OUTPUTCONFIG} ${CMAKE_SOURCE_DIR}/lib )
 endforeach( OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES )
-
 
 find_package(OpenGL)
 
@@ -46,10 +45,12 @@ add_library(sb7
 set(RUN_DIR ${PROJECT_SOURCE_DIR}/bin)
 
 set(EXAMPLES
-	hello_opengl
+  hello_opengl
   spinnycube
   simple_texture
   simple_texcoords
+  alien_rain
+  fragment_list
 )
 
 find_package(OpenMP)
@@ -62,6 +63,7 @@ foreach(EXAMPLE ${EXAMPLES})
   add_executable(${EXAMPLE} WIN32 src/${EXAMPLE}/${EXAMPLE}.cpp)
   set_property(TARGET ${EXAMPLE} PROPERTY DEBUG_POSTFIX _d)
   target_link_libraries(${EXAMPLE} ${COMMON_LIBS})
+  set_property(TARGET ${EXAMPLE} PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
 endforeach(EXAMPLE)
 
 IF (${CMAKE_SYSTEM_NAME} MATCHES "Linux")

@@ -52,7 +52,7 @@ PROJECT_LOGO           =
 # If a relative path is entered, it will be relative to the location
 # where doxygen was started. If left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = F:/Toy/sb7code/extern/glfw-3.0.4/build/docs
+OUTPUT_DIRECTORY       = D:/Task/opengl_learning/extern/glfw-3.0.4/build/docs
 
 # If the CREATE_SUBDIRS tag is set to YES, then doxygen will create
 # 4096 sub-directories (in 2 levels) under the output directory of each output
@@ -641,7 +641,7 @@ WARN_FORMAT            = "$file:$line: $text"
 # and error messages should be written. If left blank the output is written
 # to stderr.
 
-WARN_LOGFILE           = F:/Toy/sb7code/extern/glfw-3.0.4/build/docs/warnings.txt
+WARN_LOGFILE           = D:/Task/opengl_learning/extern/glfw-3.0.4/build/docs/warnings.txt
 
 #---------------------------------------------------------------------------
 # configuration options related to the input files
@@ -653,18 +653,18 @@ WARN_LOGFILE           = F:/Toy/sb7code/extern/glfw-3.0.4/build/docs/warnings.tx
 # with spaces.
 
 INPUT                  =                          \
-                         F:/Toy/sb7code/extern/glfw-3.0.4/include/GLFW/glfw3.h       \
-                         F:/Toy/sb7code/extern/glfw-3.0.4/include/GLFW/glfw3native.h \
-                         F:/Toy/sb7code/extern/glfw-3.0.4/docs/main.dox              \
-                         F:/Toy/sb7code/extern/glfw-3.0.4/docs/news.dox              \
-                         F:/Toy/sb7code/extern/glfw-3.0.4/docs/quick.dox             \
-                         F:/Toy/sb7code/extern/glfw-3.0.4/docs/moving.dox            \
-                         F:/Toy/sb7code/extern/glfw-3.0.4/docs/compile.dox           \
-                         F:/Toy/sb7code/extern/glfw-3.0.4/docs/build.dox             \
-                         F:/Toy/sb7code/extern/glfw-3.0.4/docs/context.dox           \
-                         F:/Toy/sb7code/extern/glfw-3.0.4/docs/monitor.dox           \
-                         F:/Toy/sb7code/extern/glfw-3.0.4/docs/window.dox            \
-                         F:/Toy/sb7code/extern/glfw-3.0.4/docs/compat.dox
+                         D:/Task/opengl_learning/extern/glfw-3.0.4/include/GLFW/glfw3.h       \
+                         D:/Task/opengl_learning/extern/glfw-3.0.4/include/GLFW/glfw3native.h \
+                         D:/Task/opengl_learning/extern/glfw-3.0.4/docs/main.dox              \
+                         D:/Task/opengl_learning/extern/glfw-3.0.4/docs/news.dox              \
+                         D:/Task/opengl_learning/extern/glfw-3.0.4/docs/quick.dox             \
+                         D:/Task/opengl_learning/extern/glfw-3.0.4/docs/moving.dox            \
+                         D:/Task/opengl_learning/extern/glfw-3.0.4/docs/compile.dox           \
+                         D:/Task/opengl_learning/extern/glfw-3.0.4/docs/build.dox             \
+                         D:/Task/opengl_learning/extern/glfw-3.0.4/docs/context.dox           \
+                         D:/Task/opengl_learning/extern/glfw-3.0.4/docs/monitor.dox           \
+                         D:/Task/opengl_learning/extern/glfw-3.0.4/docs/window.dox            \
+                         D:/Task/opengl_learning/extern/glfw-3.0.4/docs/compat.dox
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -724,7 +724,7 @@ EXCLUDE_SYMBOLS        = APIENTRY GLFWAPI
 # directories that contain example code fragments that are included (see
 # the \include command).
 
-EXAMPLE_PATH           = F:/Toy/sb7code/extern/glfw-3.0.4/examples
+EXAMPLE_PATH           = D:/Task/opengl_learning/extern/glfw-3.0.4/examples
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
@@ -900,13 +900,13 @@ HTML_FILE_EXTENSION    = .html
 # have to redo this when upgrading to a newer version of doxygen or when
 # changing the value of configuration settings such as GENERATE_TREEVIEW!
 
-HTML_HEADER            = F:/Toy/sb7code/extern/glfw-3.0.4/docs/header.html
+HTML_HEADER            = D:/Task/opengl_learning/extern/glfw-3.0.4/docs/header.html
 
 # The HTML_FOOTER tag can be used to specify a personal HTML footer for
 # each generated HTML page. If it is left blank doxygen will generate a
 # standard footer.
 
-HTML_FOOTER            = F:/Toy/sb7code/extern/glfw-3.0.4/docs/footer.html
+HTML_FOOTER            = D:/Task/opengl_learning/extern/glfw-3.0.4/docs/footer.html
 
 # The HTML_STYLESHEET tag can be used to specify a user-defined cascading
 # style sheet that is used by each HTML page. It can be used to
@@ -925,7 +925,7 @@ HTML_STYLESHEET        =
 # robust against future updates. Doxygen will copy the style sheet file to
 # the output directory.
 
-HTML_EXTRA_STYLESHEET  = F:/Toy/sb7code/extern/glfw-3.0.4/docs/extra.css
+HTML_EXTRA_STYLESHEET  = D:/Task/opengl_learning/extern/glfw-3.0.4/docs/extra.css
 
 # The HTML_EXTRA_FILES tag can be used to specify one or more extra images or
 # other source files which should be copied to the HTML output directory. Note
