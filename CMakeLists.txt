@@ -51,6 +51,8 @@ set(EXAMPLES
   simple_texcoords
   alien_rain
   fragment_list
+  tess_mode
+  dispmap
 )
 
 find_package(OpenMP)
