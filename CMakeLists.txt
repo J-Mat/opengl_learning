@@ -51,6 +51,9 @@ set(EXAMPLES
   simple_texcoords
   alien_rain
   fragment_list
+  grass
+  instance_attribs
+  multi_draw_indirect
 )
 
 find_package(OpenMP)
