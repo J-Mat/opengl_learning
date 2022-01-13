@@ -6,7 +6,7 @@ in GS_OUT
 {
 	vec3 normal;
 	vec4 color;
-} fs_in
+} fs_in;
 
 void main(void)
 {
