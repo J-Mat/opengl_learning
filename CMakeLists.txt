@@ -55,6 +55,7 @@ set(EXAMPLES
     instance_attribs
     multi_draw_indirect
     gs_explode
+    basic_fbo
 )
 
 find_package(OpenMP)
