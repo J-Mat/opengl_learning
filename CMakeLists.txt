@@ -45,14 +45,19 @@ add_library(sb7
 set(RUN_DIR ${PROJECT_SOURCE_DIR}/bin)
 
 set(EXAMPLES
-  hello_opengl
-  spinnycube
-  simple_texture
-  simple_texcoords
-  alien_rain
-  fragment_list
-  tess_mode
-  dispmap
+    hello_opengl
+    spinnycube
+    simple_texture
+    simple_texcoords
+    alien_rain
+    fragment_list
+    grass
+    instance_attribs
+    multi_draw_indirect
+    gs_explode
+    basic_fbo
+    dispmap
+    tess_mode
 )
 
 find_package(OpenMP)
