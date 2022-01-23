@@ -58,6 +58,8 @@ set(EXAMPLES
     basic_fbo
     dispmap
     tess_mode
+    prefixsum
+    dof 
 )
 
 find_package(OpenMP)
