@@ -64,8 +64,8 @@ private:
 	{
 		GLuint shaders[4];
 
-		shaders[0] = sb7::shader::load("media/shaders/dof/render.vs.glsl", GL_VERTEX_SHADER);
-		shaders[1] = sb7::shader::load("media/shaders/dof/render.fs.glsl", GL_FRAGMENT_SHADER);
+		shaders[0] = sb7::shader::load("media/shaders/dof/render.vs", GL_VERTEX_SHADER);
+		shaders[1] = sb7::shader::load("media/shaders/dof/render.fs", GL_FRAGMENT_SHADER);
 
 		if (view_program)
 			glDeleteProgram(view_program);
@@ -77,8 +77,8 @@ private:
 		uniforms.view.full_shading = glGetUniformLocation(view_program, "full_shading");
 		uniforms.view.diffuse_albedo = glGetUniformLocation(view_program, "diffuse_albedo");
 
-		shaders[0] = sb7::shader::load("media/shaders/dof/display.vs.glsl", GL_VERTEX_SHADER);
-		shaders[1] = sb7::shader::load("media/shaders/dof/display.fs.glsl", GL_FRAGMENT_SHADER);
+		shaders[0] = sb7::shader::load("media/shaders/dof/display.vs", GL_VERTEX_SHADER);
+		shaders[1] = sb7::shader::load("media/shaders/dof/display.fs", GL_FRAGMENT_SHADER);
 
 		if (display_program)
 			glDeleteProgram(display_program);
@@ -88,7 +88,7 @@ private:
 		uniforms.dof.focal_distance = glGetUniformLocation(display_program, "focal_distance");
 		uniforms.dof.focal_depth = glGetUniformLocation(display_program, "focal_depth");
 
-		shaders[0] = sb7::shader::load("media/shaders/dof/gensat.cs.glsl", GL_COMPUTE_SHADER);
+		shaders[0] = sb7::shader::load("media/shaders/dof/gensat.cs", GL_COMPUTE_SHADER);
 
 		if (filter_program)
 			glDeleteProgram(filter_program);
@@ -252,6 +252,24 @@ private:
 		
 		glDispatchCompute(info.windowHeight, 1, 1);
 		
+		glMemoryBarrier(GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);
+		
+		glBindImageTexture(0, temp_tex, 0, GL_FALSE, 0, GL_READ_ONLY, GL_RGBA32F);
+		glBindImageTexture(1, color_tex, 0, GL_FALSE, 0, GL_WRITE_ONLY, GL_RGBA32F);
+		
+		glDispatchCompute(info.windowWidth, 1, 1);
+		glMemoryBarrier(GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);
+		
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, color_tex);
+		glDisable(GL_DEPTH_TEST);
+		glUseProgram(display_program);
+		glUniform1f(uniforms.dof.focal_distance, focal_distance);
+		glUniform1f(uniforms.dof.focal_depth, focal_depth);
+		glBindVertexArray(quad_vao);
+		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+		
+		overlay.draw();
 	}
 
 	void onKey(int key, int action)
