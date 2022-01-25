@@ -59,7 +59,8 @@ set(EXAMPLES
     dispmap
     tess_mode
     prefixsum
-    dof 
+    dof
+    bindlesstex
 )
 
 find_package(OpenMP)
